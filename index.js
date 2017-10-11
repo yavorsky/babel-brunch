@@ -43,7 +43,7 @@ class BabelCompiler {
     }
 
     const opts = Object.keys(options).reduce((obj, key) => {
-      if (key !== 'sourceMap' && key !== 'ignore') {
+      if (key !== 'sourceMap' && key !== 'sourceMaps' && key !== 'ignore') {
         obj[key] = options[key];
       }
       return obj;
