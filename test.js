@@ -17,8 +17,12 @@ describe('Plugin', function() {
   });
 
   it('should do nothing for no preset', () => {
-    const content = 'var c = {};\nvar { a, b } = c;';
-
+    const content = `var c = {};
+var {
+  a,
+  b
+} = c;
+`;
     plugin = new Plugin({
       paths: {root: '.'},
       plugins: {
@@ -93,7 +97,7 @@ describe('Plugin', function() {
 
   it('should load indicated plugins with options', () => {
     const content = '`var x = 1; test ${x}`';
-    const expected = 'String(x)';
+    const expected = '.concat(x)';
 
     plugin = new Plugin({
       paths: {root: '.'},
@@ -123,10 +127,10 @@ describe('Plugin', function() {
 
     const sourceMapPlugin = new Plugin({
       paths: {root: '.'},
+      sourceMaps: true,
       plugins: {
         babel: {
           pattern: /\.(babel|es6|jsx)$/,
-          sourceMaps: true,
         },
       },
     });
