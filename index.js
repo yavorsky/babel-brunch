@@ -1,6 +1,6 @@
 'use strict';
 
-const babel = require('babel-core');
+const babel = require('@babel/core');
 const anymatch = require('anymatch');
 const logger = require('loggy');
 
